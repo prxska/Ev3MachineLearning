@@ -20,3 +20,8 @@ Jugadores que se mueven más (mayor travelled) tienden a influir más en la part
 Un equipo costoso sin participación no garantiza éxito.
 
 Por eso, el modelo puede clasificar como GANADOR a alguien con poca inversión pero alto rendimiento.
+
+
+
+interfaz
+https://www.mediafire.com/file/syf66dn4y57p4e1/interfaz_%25282%2529.zip/file
