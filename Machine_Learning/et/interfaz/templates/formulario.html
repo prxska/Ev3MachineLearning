@@ -90,11 +90,30 @@
     <div class="form-box">
         <h2>🎮 Predicción de Supervivencia</h2>
         <form action="/predecir" method="post">
+            
             <label for="travelled">Distancia Recorrida:</label>
             <input type="number" name="travelled" step="any" required>
 
             <label for="equipment">Valor del Equipamiento Inicial:</label>
             <input type="number" name="equipment" step="any" required>
+
+            <label for="timealive">Tiempo Vivo (segundos):</label>
+            <input type="number" name="timealive" step="any" required>
+
+            <label for="grenades">Granadas Letales Lanzadas:</label>
+            <input type="number" name="grenades" step="any" required>
+
+            <label for="assault">¿Usó Rifle de Asalto? (1=Sí, 0=No):</label>
+            <input type="number" name="assault" min="0" max="1" required>
+
+            <label for="headshots">Headshots en la Ronda:</label>
+            <input type="number" name="headshots" step="any" required>
+
+            <label for="assists">Asistencias en la Partida:</label>
+            <input type="number" name="assists" step="any" required>
+
+            <label for="matchheadshots">Headshots Totales en el Match:</label>
+            <input type="number" name="matchhead ​:contentReference[oaicite:0]{index=0}​">
 
             <button type="submit">Predecir</button>
         </form>
@@ -103,42 +122,7 @@
             <div class="resultado">Resultado: {{ resultado }}</div>
         {% endif %}
 
-        <table class="tabla-ejemplos">
-            <thead>
-                <tr>
-                    <th>Distancia Recorrida</th>
-                    <th>Equipamiento Inicial</th>
-                    <th>Resultado Esperado</th>
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1000</td>
-                    <td>400</td>
-                    <td style="color:#ffd93b; font-weight:bold;">GANADOR</td>
-                    <td>Equipo barato + poco movimiento</td>
-                </tr>
-                <tr>
-                    <td>4000</td>
-                    <td>400</td>
-                    <td style="color:#ffd93b; font-weight:bold;">GANADOR</td>
-                    <td>Poca inversión, pero jugó bien</td>
-                </tr>
-                <tr>
-                    <td>2000</td>
-                    <td>2000</td>
-                    <td style="color:#ff6b6b; font-weight:bold;">PERDEDOR</td>
-                    <td>Mucho equipo y actividad decente</td>
-                </tr>
-                <tr>
-                    <td>200</td>
-                    <td>2000</td>
-                    <td style="color:#ff6b6b; font-weight:bold;">PERDEDOR</td>
-                    <td>Mucho equipo pero no hizo nada</td>
-                </tr>
-            </tbody>
-        </table>
+        
     </div>
 </body>
 </html>
