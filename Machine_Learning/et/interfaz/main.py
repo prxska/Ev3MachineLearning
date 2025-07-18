@@ -9,18 +9,21 @@ import gdown
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
-# ID del archivo de Google Drive
-drive_file_id = "1kWeaiVGBssKEB2AnbLyDCAvFivLmCTkf"  # <-- Reemplaza con el tuyo real
-output_path = "scaler.pkl"
+# Diccionario con archivos a descargar desde Google Drive
+drive_files = {
+    "scaler.pkl": "1kWeaiVGBssKEB2AnbLyDCAvFivLmCTkf",           # <-- tu ID real del scaler
+    "random_forest.pkl": "1HQiSKqTGVTILN1U2z3nbD9a5StTCffx7"      # <-- tu ID real del modelo
+}
 
-# Descargar scaler.pkl desde Google Drive si no existe
-if not os.path.exists(output_path):
-    url = f"https://drive.google.com/uc?id={drive_file_id}"
-    gdown.download(url, output_path, quiet=False)
+# Descargar archivos si no existen
+for filename, file_id in drive_files.items():
+    if not os.path.exists(filename):
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, filename, quiet=False)
 
 # Cargar modelo y scaler
 model = joblib.load("random_forest.pkl")
-scaler = joblib.load(output_path)
+scaler = joblib.load("scaler.pkl")
 
 @app.get("/", response_class=HTMLResponse)
 async def form_get(request: Request):
